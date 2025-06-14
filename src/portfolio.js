@@ -26,7 +26,7 @@ const greeting = {
     "A passionate student of Software Engineering 🚀 having an experience of building Web with JavaScript / Reactjs / Nodejs / React Native and some other cool libraries and frameworks."
   ),
   resumeLink:
-    "https://drive.google.com/file/d/1u0iNM9LsEvF113sqlQYLT0fflZe3d6yL/view?usp=sharing", // Set to empty to hide the button
+    "https://drive.google.com/uc?export=download&id=1u0iNM9LsEvF113sqlQYLT0fflZe3d6yL", // Set to empty to hide the button
   displayGreeting: true // Set false to hide this section, defaults to true
 };
 
