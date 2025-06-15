@@ -1,15 +1,16 @@
 @import "../../_globalColor";
 
+
 .contact-div-main {
   display: flex;
+  justify-content: space-between; // זה מפריד בין הצד של הטקסט לתמונה
+  align-items: center;
+  flex-wrap: wrap; // למובייל
 }
+
 
 .dark-mode a {
   color: $textColorDark;
-}
-
-.contact-div-main > * {
-  flex: 1;
 }
 
 .contact-title {
@@ -84,4 +85,21 @@
   .contact-image-div {
     display: none;
   }
+
+  
 }
+
+.image-with-photo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile-image-contact {
+  width: 250px;
+  margin-left:  20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+
