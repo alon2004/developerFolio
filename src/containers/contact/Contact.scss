@@ -1,64 +1,165 @@
 @import "../../_globalColor";
 
-
 .contact-div-main {
   display: flex;
-  justify-content: space-between; // זה מפריד בין הצד של הטקסט לתמונה
+  justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap; // למובייל
-}
-
-
-.dark-mode a {
-  color: $textColorDark;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 4rem;
 }
 
 .contact-title {
   font-size: 65px;
   font-weight: 400;
-}
-
-.contact-detail,
-.contact-detail-email {
-  margin-top: 20px;
-  font-size: 40px;
-  font-weight: 400;
-  color: $subTitle;
-  text-decoration: none;
-}
-
-.contact-detail:hover,
-.contact-detail-email:hover {
-  color: $textColor;
-  text-shadow: 2px 1px 2px $contactDetailHoverTS;
-  transition: all 0.3s;
+  color: $titleColor;
+  margin-bottom: 1rem;
 }
 
 .contact-subtitle {
+  font-size: 18px;
   text-transform: uppercase;
+  color: $subTitle;
+  margin-bottom: 1rem;
 }
 
 .contact-text-div {
   margin-top: 1.5rem;
 }
 
-.contact-margin-top {
-  margin-top: 4rem;
+.contact-detail,
+.contact-detail-email {
+  display: inline-block;
+  font-size: 20px;
+  margin: 10px 0;
+  color: $subTitle;
+  text-decoration: none;
+  transition: all 0.3s;
+
+  &:hover {
+    color: $textColor;
+    text-shadow: 2px 1px 2px $contactDetailHoverTS;
+  }
 }
 
-.contact-image-div > img {
-  max-width: 100%;
-  height: auto;
-  margin-left: 1.5rem;
-  margin-top: -4rem;
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 1rem;
+  max-width: 500px;
+
+  input,
+  textarea {
+  padding: 12px 16px;
+  font-size: 16px;
+  border: 2px solid $textColor;
+  border-radius: 8px;
+  background-color: transparent;
+  color: $textColor;
+  font-family: inherit;
+  transition: border-color 0.3s, background-color 0.3s;
+  resize: none; // 👈 זה מונע שינוי גודל ע"י המשתמש
+
+    &:focus {
+      outline: none;
+      border-color: $accentColor;
+      background-color: $lightBackground3;
+    }
+  }
+
+  button {
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: $buttonColor;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: darken($accentColor, 10%);
+    }
+  }
+
+  p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: $subTitle;
+  }
 }
 
-/* Media Query */
-@media (max-width: 1380px), (max-width: 768px) {
-  .contact-title {
-    font-size: 56px;
-    font-weight: 400;
-    text-align: center;
+.contact-image-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+
+  .profile-image-contact {
+    width: 250px;
+    margin-left: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px $lightBoxShadowDark;
+  }
+}
+
+// Dark Mode
+.dark-mode {
+  background-color: $darkBackground;
+  color: $textColorDark;
+
+  .contact-subtitle,
+  .contact-detail,
+  .contact-detail-email,
+  .contact-form p {
+    color: $textColorDark;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    border-color: $textColorDark;
+    color: $textColorDark;
+    background-color: transparent;
+  }
+
+.contact-form button {
+  background-color: $buttonColor;
+  color: white;
+  font-weight: 600;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s, transform 0.2s;
+  resize: none;
+
+
+  &:hover {
+    background-color: white;
+    color: $buttonColor;
+    border-color: $buttonColor;
+    transform: translateY(-3px); // 👈 קפיצה קטנה למעלה
+  }
+
+  &:active {
+    transform: translateY(0); // חוזר למקום בלחיצה
+  }
+}
+
+
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .contact-div-main {
+    flex-direction: column;
+    align-items: center;
   }
 
   .contact-title {
@@ -66,40 +167,22 @@
     text-align: center;
   }
 
-  .contact-subtitle {
-    font-size: 16px;
-    line-height: normal;
+  .contact-subtitle,
+  .contact-text-div,
+  .contact-form {
     text-align: center;
-  }
-
-  .contact-text-div {
-    text-align: center;
-    margin-top: 1.5rem;
-  }
-
-  .contact-detail,
-  .contact-detail-email {
-    font-size: 20px;
+    width: 100%;
   }
 
   .contact-image-div {
-    display: none;
+    margin-top: 2rem;
   }
 
-  
+  .profile-image-contact {
+    width: 180px;
+    margin: 0 auto;
+  }
 }
 
-.image-with-photo {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.profile-image-contact {
-  width: 250px;
-  margin-left:  20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
 
 

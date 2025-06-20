@@ -19,7 +19,7 @@ export default function Footer() {
             target="_blank"
             rel="noreferrer"
           >
-            developerFolio
+            Alon Fisher
           </a>
         </p>
       </div>
