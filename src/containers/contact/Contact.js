@@ -70,7 +70,9 @@ export default function Contact() {
                   rows="5"
                   onChange={handleChange}
                 ></textarea>
+                {status !== "Email sent successfully!" && (
                 <button type="submit">Send</button>
+                )}  
                 <p>{status}</p>
               </form>
               <br /><br />
