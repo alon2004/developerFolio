@@ -22,7 +22,7 @@ export default function Contact() {
     e.preventDefault();
     setStatus("sending message...");
     try {
-      const response = await fetch("https://YOUR_API_GATEWAY_URL_HERE", {
+      const response = await fetch("https://lcf3bkqtq8.execute-api.eu-north-1.amazonaws.com/contactDEV", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(formData)
