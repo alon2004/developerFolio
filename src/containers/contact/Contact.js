@@ -21,7 +21,6 @@ export default function Contact() {
 const handleSubmit = async (e) => {
   e.preventDefault();
   setStatus("sending message...");
-  console.log("API KEY:", process.env.REACT_APP_CONTACT_API_KEY);
   try {
     const response = await fetch("https://ufe4ahze73.execute-api.eu-north-1.amazonaws.com/contact/contact", {
       method: "POST",
