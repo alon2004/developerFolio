@@ -26,7 +26,7 @@ const handleSubmit = async (e) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "x-api-key": "aa" // ⬅️ תכניס כאן את ה־API Key
+        "x-api-key": process.env.REACT_APP_CONTACT_API_KEY // ⬅️ תכניס כאן את ה־API Key
       },
       body: JSON.stringify(formData)
     });
