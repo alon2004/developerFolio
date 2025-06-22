@@ -51,15 +51,17 @@
 
   input,
   textarea {
-  padding: 12px 16px;
-  font-size: 16px;
-  border: 2px solid $textColor;
-  border-radius: 8px;
-  background-color: transparent;
-  color: $textColor;
-  font-family: inherit;
-  transition: border-color 0.3s, background-color 0.3s;
-  resize: none; // 👈 זה מונע שינוי גודל ע"י המשתמש
+    max-width: 1300px;     // ← מקסימום רוחב
+    height: 52px;          // ← גובה מותאם
+    padding: 12px 16px;
+    font-size: 16px;
+    border: 2px solid $textColor;
+    border-radius: 8px;
+    background-color: transparent;
+    color: $textColor;
+    font-family: inherit;
+    transition: border-color 0.3s, background-color 0.3s;
+    resize: none;
 
     &:focus {
       outline: none;
@@ -67,6 +69,7 @@
       background-color: $lightBackground3;
     }
   }
+
 
   button {
     padding: 12px 20px;
