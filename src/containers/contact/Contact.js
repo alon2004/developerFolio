@@ -21,6 +21,7 @@ export default function Contact() {
 const handleSubmit = async (e) => {
   e.preventDefault();
   setStatus("sending message...");
+  console.log("API KEY:", process.env.REACT_APP_CONTACT_API_KEY);
   try {
     const response = await fetch("https://ufe4ahze73.execute-api.eu-north-1.amazonaws.com/contact/contact", {
       method: "POST",
@@ -32,7 +33,7 @@ const handleSubmit = async (e) => {
     });
 
     const resData = await response.json();
-    setStatus(resData.message || "message sent successfully!");
+    setStatus(resData.message || "message sent successfully!" );
   } catch (err) {
     console.error(err);
     setStatus("message not sent, please try again later.");
