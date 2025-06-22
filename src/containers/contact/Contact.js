@@ -18,22 +18,27 @@ export default function Contact() {
     setFormData({...formData, [e.target.name]: e.target.value});
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setStatus("sending message...");
-    try {
-      const response = await fetch("https://ufe4ahze73.execute-api.eu-north-1.amazonaws.com/contact/contact", {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(formData)
-      });
-      const resData = await response.json();
-      setStatus(resData.message || "message sent successfully!");
-    } catch (err) {
-      console.error(err);
-      setStatus("message not sent, please try again later.");
-    }
-  };
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setStatus("sending message...");
+  try {
+    const response = await fetch("https://ufe4ahze73.execute-api.eu-north-1.amazonaws.com/contact/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": "v8V2Ap43sy74GddvbPbNoaNVacjpjxcQ9fh0Bltp" // ⬅️ תכניס כאן את ה־API Key
+      },
+      body: JSON.stringify(formData)
+    });
+
+    const resData = await response.json();
+    setStatus(resData.message || "message sent successfully!");
+  } catch (err) {
+    console.error(err);
+    setStatus("message not sent, please try again later.");
+  }
+};
+
 
   return (
     <Fade bottom duration={1000} distance="20px">
